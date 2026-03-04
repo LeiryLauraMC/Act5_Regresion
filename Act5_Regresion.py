@@ -326,12 +326,7 @@ st.markdown("""
     <h1>Educación y Escolaridad Global</h1>
     <span class="author">Leiry Laura Mares Cure</span>
     <p>Análisis Exploratorio de Datos &mdash; Regresión Lineal</p>
-    <div>
-      <span class="badge">Banco Mundial</span>
-      <span class="badge">Regresión Lineal</span>
-      <span class="badge">2010 – 2023</span>
-
-    </div>
+    <div><span class="badge">Banco Mundial</span><span class="badge">Regresión Lineal</span><span class="badge">2010 – 2023</span></div>
   </div>
 </div>
 """, unsafe_allow_html=True)
