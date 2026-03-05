@@ -774,10 +774,10 @@ with tabs[3]:
         keys_pair  = [VAR_MAP[v] for v in vars_pair]
         # Etiquetas cortas para evitar solapamiento en los ejes
         short_labels = {
-            "gasto_educacion_pib":  "Gasto Educ.<br>(% PIB)",
-            "anios_escolaridad":    "Años<br>Escolaridad",
-            "pib_per_capita":       "PIB per<br>cápita (USD)",
-            "tasa_alfabetizacion":  "Alfabet.<br>(%)",
+            "gasto_educacion_pib":  "Gasto (%PIB)",
+            "anios_escolaridad":    "Escolaridad",
+            "pib_per_capita":       "PIB p.c.",
+            "tasa_alfabetizacion":  "Alfabet. (%)",
         }
         labels_pair = {k: short_labels.get(k, k) for k in keys_pair}
 
