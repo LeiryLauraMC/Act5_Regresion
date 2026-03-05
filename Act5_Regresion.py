@@ -428,8 +428,9 @@ with tabs[0]:
     st.markdown('<div class="section-title">Preguntas de Investigación</div>', unsafe_allow_html=True)
     st.markdown("""
     <div class="info-box">
-    En esta sección se plantean las preguntas que guiarán todo el análisis exploratorio.
-    Serán respondidas formalmente en la sección <strong>T — Tell</strong>.
+    En este EDA (análisis exploratorio de datos) sobre indicadores educativos del Banco Mundial se busca conocer
+    patrones globales entre el gasto en educación, el desarrollo económico, la alfabetización y los años
+    de escolaridad, aportando evidencia empírica para la toma de decisiones en política pública que favorezca el desarrollo de los diferentes países en esre ámbito. 
     </div>
     """, unsafe_allow_html=True)
 
