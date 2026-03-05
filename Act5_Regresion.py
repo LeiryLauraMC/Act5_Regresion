@@ -428,7 +428,7 @@ with tabs[0]:
     st.markdown('<div class="section-title">Preguntas de Investigación</div>', unsafe_allow_html=True)
     st.markdown("""
     <div class="info-box">
-    EEn este EDA (análisis exploratorio de datos) se busca conocer patrones globales entre el gasto en educación, el desarrollo económico, la alfabetización y los años de escolaridad, aportando evidencia empírica para la toma de decisiones en política pública, basados en indicadores educativos del Banco Mundial.
+    En este EDA (análisis exploratorio de datos) se busca conocer patrones globales entre el gasto en educación, el desarrollo económico, la alfabetización y los años de escolaridad, aportando evidencia empírica para la toma de decisiones en política pública, basados en indicadores educativos del Banco Mundial.
     </div>
     """, unsafe_allow_html=True)
 
@@ -766,19 +766,50 @@ with tabs[3]:
         nombres_var, default=nombres_var, key="pair_vars"
     )
     if len(vars_pair) >= 2:
-        keys_pair = [VAR_MAP[v] for v in vars_pair]
-        fig_pair  = px.scatter_matrix(
+        keys_pair  = [VAR_MAP[v] for v in vars_pair]
+        # Etiquetas cortas para evitar solapamiento en los ejes
+        short_labels = {
+            "gasto_educacion_pib":  "Gasto Educ.<br>(% PIB)",
+            "anios_escolaridad":    "Años<br>Escolaridad",
+            "pib_per_capita":       "PIB per<br>cápita (USD)",
+            "tasa_alfabetizacion":  "Alfabet.<br>(%)",
+        }
+        labels_pair = {k: short_labels.get(k, k) for k in keys_pair}
+
+        fig_pair = px.scatter_matrix(
             df, dimensions=keys_pair,
             hover_name="pais",
             color_discrete_sequence=[C1],
             opacity=0.55,
-            labels={k: v for k, v in zip(keys_pair, vars_pair)},
+            labels=labels_pair,
         )
         fig_pair.update_traces(
             marker=dict(size=4, line=dict(color="white", width=0.3)),
             diagonal_visible=True,
         )
-        apply_layout(fig_pair, title="Matriz de Dispersión", height=560)
+
+        n_vars = len(keys_pair)
+        altura = max(600, n_vars * 170)
+
+        fig_pair.update_layout(
+            **PLOTLY_BASE,
+            title="Matriz de Dispersión",
+            height=altura,
+            margin=dict(l=110, r=40, t=60, b=110),
+        )
+        fig_pair.update_xaxes(
+            **AXIS_STYLE,
+            tickangle=30,
+            tickfont=dict(size=9),
+            title_font=dict(size=10),
+            title_standoff=18,
+        )
+        fig_pair.update_yaxes(
+            **AXIS_STYLE,
+            tickfont=dict(size=9),
+            title_font=dict(size=10),
+            title_standoff=18,
+        )
         st.plotly_chart(fig_pair, use_container_width=True)
     else:
         st.info("Selecciona al menos 2 variables para ver la matriz de dispersión.")
