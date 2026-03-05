@@ -428,9 +428,7 @@ with tabs[0]:
     st.markdown('<div class="section-title">Preguntas de Investigación</div>', unsafe_allow_html=True)
     st.markdown("""
     <div class="info-box">
-    En este EDA (análisis exploratorio de datos) se busca conocer
-    patrones globales entre el gasto en educación, el desarrollo económico, la alfabetización y los años
-    de escolaridad, aportando evidencia empírica para la toma de decisiones en política pública, basados en indicadores educativos del Banco Mundial.
+    En este EDA (análisis exploratorio de datos) se busca conocer patrones globales entre el gasto en educación, el desarrollo económico, la alfabetización y los años de escolaridad, aportando evidencia empírica para la toma de decisiones en política pública, basados en indicadores educativos del Banco Mundial.
     </div>
     """, unsafe_allow_html=True)
 
@@ -1044,44 +1042,17 @@ with tabs[4]:
          f"R² mejora de {res['r2_1']:.4f} a {res['r2_2']:.4f} "
          f"(+{mejora_r2:.1f}%), y el RMSE se reduce un {mejora_rmse:.1f}%."),
     ]
-    for code, titulo, texto in respuestas:
-        st.markdown(f"""
-        <div class="answer-box">
-          <h4>{code} — {titulo}</h4>
-          <p style="margin:0;line-height:1.6;">{texto}</p>
-        </div>
-        """, unsafe_allow_html=True)
-
-    # ── Conclusiones ──
-    st.markdown("<hr>", unsafe_allow_html=True)
-    st.markdown('<div class="sub-title">Conclusiones del EDA</div>', unsafe_allow_html=True)
-
-    conclusiones = [
-        ("I",   "Gasto educativo como predictor aislado",
-         "El porcentaje del PIB destinado a educación no predice de forma robusta los años de "
-         "escolaridad. La eficiencia y focalización del gasto son tan críticas como su magnitud."),
-        ("II",  "PIB per cápita: el predictor dominante",
-         "El desarrollo económico general crea condiciones estructurales (infraestructura, estabilidad, "
-         "incentivos laborales) que impulsan la educación prolongada, especialmente visible en escala logarítmica."),
-        ("III", "Superioridad del modelo múltiple",
-         f"Combinar gasto, PIB y alfabetización produce un modelo con R² ajustado de "
-         f"{res['sm2'].rsquared_adj:.4f} frente a "
-         f"{res['sm1'].rsquared_adj:.4f} del modelo simple."),
-        ("IV",  "Implicación para política pública",
-         "Aumentar el presupuesto educativo es necesario pero no suficiente. Deben considerarse "
-         "simultáneamente el crecimiento económico, la reducción del analfabetismo y la calidad de la inversión."),
-    ]
-    concl_colors = [C1, C3, C2, C4]
+    resp_colors = [C1, C3, C2, C4]
     cols = st.columns(2)
-    for i, (num, titulo, texto) in enumerate(conclusiones):
+    for i, (code, titulo, texto) in enumerate(respuestas):
         with cols[i % 2]:
             st.markdown(f"""
             <div style="background:#fff;border-radius:12px;padding:1.1rem 1.35rem;
-                        border-left:4px solid {concl_colors[i]};
+                        border-left:4px solid {resp_colors[i]};
                         box-shadow:0 1px 8px rgba(0,0,0,.06);margin-bottom:1rem;min-height:118px;">
               <span style="font-family:'Playfair Display',serif;font-size:.70rem;
                            text-transform:uppercase;letter-spacing:.1em;
-                           color:{concl_colors[i]};font-weight:700;">{num}</span>
+                           color:{resp_colors[i]};font-weight:700;">{code}</span>
               <div style="font-family:'Playfair Display',serif;font-weight:700;
                           font-size:.96rem;color:#2E4A6B;margin:.28rem 0 .45rem;">{titulo}</div>
               <p style="margin:0;color:#4A3E33;font-size:.89rem;line-height:1.55;">{texto}</p>
