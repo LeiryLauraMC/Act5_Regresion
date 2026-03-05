@@ -791,11 +791,12 @@ with tabs[3]:
         n_vars = len(keys_pair)
         altura = max(600, n_vars * 170)
 
+        pair_layout = {**PLOTLY_BASE}
+        pair_layout["margin"] = dict(l=110, r=40, t=60, b=110)
         fig_pair.update_layout(
-            **PLOTLY_BASE,
+            **pair_layout,
             title="Matriz de Dispersión",
             height=altura,
-            margin=dict(l=110, r=40, t=60, b=110),
         )
         fig_pair.update_xaxes(
             **AXIS_STYLE,
