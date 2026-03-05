@@ -428,7 +428,7 @@ with tabs[0]:
     st.markdown('<div class="section-title">Preguntas de Investigación</div>', unsafe_allow_html=True)
     st.markdown("""
     <div class="info-box">
-    En este EDA (análisis exploratorio de datos) se busca conocer patrones globales entre el gasto en educación, el desarrollo económico, la alfabetización y los años de escolaridad, aportando evidencia empírica para la toma de decisiones en política pública, basados en indicadores educativos del Banco Mundial.
+    EEn este EDA (análisis exploratorio de datos) se busca conocer patrones globales entre el gasto en educación, el desarrollo económico, la alfabetización y los años de escolaridad, aportando evidencia empírica para la toma de decisiones en política pública, basados en indicadores educativos del Banco Mundial.
     </div>
     """, unsafe_allow_html=True)
 
@@ -727,7 +727,6 @@ with tabs[3]:
     with col_s3:
         color_sc = st.selectbox("Color:", ["Ninguno"] + nombres_var, key="sc_color")
     with col_s4:
-        log_x = st.checkbox("Log X", key="sc_logx")
         show_trendline = st.checkbox("Línea de tendencia", value=True, key="sc_trend")
 
     x_key = VAR_MAP[eje_x]
@@ -735,11 +734,7 @@ with tabs[3]:
     c_key = VAR_MAP[color_sc] if color_sc != "Ninguno" else None
 
     scatter_df = df.copy()
-    if log_x:
-        scatter_df[x_key] = np.log(scatter_df[x_key].clip(lower=0.01))
-        x_label = f"log({eje_x})"
-    else:
-        x_label = eje_x
+    x_label = eje_x
 
     fig_sc = px.scatter(
         scatter_df,
