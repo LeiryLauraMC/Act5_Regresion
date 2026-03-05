@@ -428,9 +428,9 @@ with tabs[0]:
     st.markdown('<div class="section-title">Preguntas de Investigación</div>', unsafe_allow_html=True)
     st.markdown("""
     <div class="info-box">
-    En este EDA (análisis exploratorio de datos) sobre indicadores educativos del Banco Mundial se busca conocer
+    En este EDA (análisis exploratorio de datos) se busca conocer
     patrones globales entre el gasto en educación, el desarrollo económico, la alfabetización y los años
-    de escolaridad, aportando evidencia empírica para la toma de decisiones en política pública que favorezca el desarrollo de los diferentes países en esre ámbito. 
+    de escolaridad, aportando evidencia empírica para la toma de decisiones en política pública, basados en indicadores educativos del Banco Mundial.  
     </div>
     """, unsafe_allow_html=True)
 
