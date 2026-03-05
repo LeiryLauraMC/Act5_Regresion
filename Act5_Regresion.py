@@ -428,12 +428,9 @@ with tabs[0]:
     st.markdown('<div class="section-title">Preguntas de Investigación</div>', unsafe_allow_html=True)
     st.markdown("""
     <div class="info-box">
-    El análisis exploratorio de datos (EDA) es una etapa fundamental en cualquier proceso investigativo
-    basado en datos. Permite comprender la estructura, distribución y relaciones entre variables antes
-    de aplicar modelos formales, identificar valores atípicos, verificar supuestos y formular hipótesis
-    fundamentadas. En este estudio, el EDA sobre indicadores educativos del Banco Mundial busca revelar
+    En este EDA (análisis exploratorio de datos) se busca conocer
     patrones globales entre el gasto en educación, el desarrollo económico, la alfabetización y los años
-    de escolaridad, aportando evidencia empírica para la toma de decisiones en política pública.
+    de escolaridad, aportando evidencia empírica para la toma de decisiones en política pública, basados en indicadores educativos del Banco Mundial.
     </div>
     """, unsafe_allow_html=True)
 
