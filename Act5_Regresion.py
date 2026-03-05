@@ -428,9 +428,12 @@ with tabs[0]:
     st.markdown('<div class="section-title">Preguntas de Investigación</div>', unsafe_allow_html=True)
     st.markdown("""
     <div class="info-box">
-    En este EDA (análisis exploratorio de datos) se busca conocer
+    El análisis exploratorio de datos (EDA) es una etapa fundamental en cualquier proceso investigativo
+    basado en datos. Permite comprender la estructura, distribución y relaciones entre variables antes
+    de aplicar modelos formales, identificar valores atípicos, verificar supuestos y formular hipótesis
+    fundamentadas. En este estudio, el EDA sobre indicadores educativos del Banco Mundial busca revelar
     patrones globales entre el gasto en educación, el desarrollo económico, la alfabetización y los años
-    de escolaridad, aportando evidencia empírica para la toma de decisiones en política pública, basados en indicadores educativos del Banco Mundial.  
+    de escolaridad, aportando evidencia empírica para la toma de decisiones en política pública.
     </div>
     """, unsafe_allow_html=True)
 
@@ -1027,22 +1030,22 @@ with tabs[4]:
 
     respuestas = [
         ("P1", "Relación lineal gasto — escolaridad",
-         f"La relación es <strong>débil a moderada</strong>. El Modelo 1 alcanza un R² ajustado de "
-         f"<strong>{res['sm1'].rsquared_adj:.4f}</strong>, indicando que el gasto como porcentaje del PIB "
-         f"<em>no es suficiente por sí solo</em> para explicar la variabilidad en los años de escolaridad."),
+         f"La relación es débil a moderada. El Modelo 1 alcanza un R² ajustado de "
+         f"{res['sm1'].rsquared_adj:.4f}, indicando que el gasto como porcentaje del PIB "
+         f"no es suficiente por sí solo para explicar la variabilidad en los años de escolaridad."),
         ("P2", "PIB per cápita vs gasto en educación",
-         f"<strong>Sí.</strong> El PIB per cápita (en escala logarítmica) presenta una correlación "
-         f"<strong>considerablemente más fuerte</strong> con la escolaridad. Los coeficientes "
+         f"Sí. El PIB per cápita (en escala logarítmica) presenta una correlación "
+         f"considerablemente más fuerte con la escolaridad. Los coeficientes "
          f"estandarizados del Modelo 2 confirman que el desarrollo económico es el predictor dominante."),
         ("P3", "Correlación tasa de alfabetización",
-         f"La tasa de alfabetización muestra una correlación <strong>positiva significativa</strong> "
+         f"La tasa de alfabetización muestra una correlación positiva significativa "
          f"(r = {df['tasa_alfabetizacion'].corr(df['anios_escolaridad']):.3f}) con la escolaridad. "
          f"Sin embargo, la correlación con log(PIB) tiende a ser mayor, "
          f"confirmando el rol preponderante del contexto económico."),
         ("P4", "Modelo múltiple vs modelo simple",
-         f"<strong>Sí, significativamente.</strong> El Modelo 2 supera al Modelo 1 en todas las métricas: "
-         f"R² mejora de <strong>{res['r2_1']:.4f}</strong> a <strong>{res['r2_2']:.4f}</strong> "
-         f"(<strong>+{mejora_r2:.1f}%</strong>), y el RMSE se reduce un <strong>{mejora_rmse:.1f}%</strong>."),
+         f"Sí, significativamente. El Modelo 2 supera al Modelo 1 en todas las métricas: "
+         f"R² mejora de {res['r2_1']:.4f} a {res['r2_2']:.4f} "
+         f"(+{mejora_r2:.1f}%), y el RMSE se reduce un {mejora_rmse:.1f}%."),
     ]
     for code, titulo, texto in respuestas:
         st.markdown(f"""
@@ -1059,16 +1062,16 @@ with tabs[4]:
     conclusiones = [
         ("I",   "Gasto educativo como predictor aislado",
          "El porcentaje del PIB destinado a educación no predice de forma robusta los años de "
-         "escolaridad. La <strong>eficiencia y focalización del gasto</strong> son tan críticas como su magnitud."),
+         "escolaridad. La eficiencia y focalización del gasto son tan críticas como su magnitud."),
         ("II",  "PIB per cápita: el predictor dominante",
          "El desarrollo económico general crea condiciones estructurales (infraestructura, estabilidad, "
          "incentivos laborales) que impulsan la educación prolongada, especialmente visible en escala logarítmica."),
         ("III", "Superioridad del modelo múltiple",
          f"Combinar gasto, PIB y alfabetización produce un modelo con R² ajustado de "
-         f"<strong>{res['sm2'].rsquared_adj:.4f}</strong> frente a "
-         f"<strong>{res['sm1'].rsquared_adj:.4f}</strong> del modelo simple."),
+         f"{res['sm2'].rsquared_adj:.4f} frente a "
+         f"{res['sm1'].rsquared_adj:.4f} del modelo simple."),
         ("IV",  "Implicación para política pública",
-         "Aumentar el presupuesto educativo es necesario pero <em>no suficiente</em>. Deben considerarse "
+         "Aumentar el presupuesto educativo es necesario pero no suficiente. Deben considerarse "
          "simultáneamente el crecimiento económico, la reducción del analfabetismo y la calidad de la inversión."),
     ]
     concl_colors = [C1, C3, C2, C4]
