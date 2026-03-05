@@ -428,7 +428,12 @@ with tabs[0]:
     st.markdown('<div class="section-title">Preguntas de Investigación</div>', unsafe_allow_html=True)
     st.markdown("""
     <div class="info-box">
-    En este EDA (análisis exploratorio de datos) se busca conocer patrones globales entre el gasto en educación, el desarrollo económico, la alfabetización y los años de escolaridad, aportando evidencia empírica para la toma de decisiones en política pública, basados en indicadores educativos del Banco Mundial.
+    El análisis exploratorio de datos (EDA) es una etapa fundamental en cualquier proceso investigativo
+    basado en datos. Permite comprender la estructura, distribución y relaciones entre variables antes
+    de aplicar modelos formales, identificar valores atípicos, verificar supuestos y formular hipótesis
+    fundamentadas. En este estudio, el EDA sobre indicadores educativos del Banco Mundial busca revelar
+    patrones globales entre el gasto en educación, el desarrollo económico, la alfabetización y los años
+    de escolaridad, aportando evidencia empírica para la toma de decisiones en política pública.
     </div>
     """, unsafe_allow_html=True)
 
@@ -799,17 +804,14 @@ with tabs[3]:
             height=altura,
         )
         fig_pair.update_xaxes(
-            **AXIS_STYLE,
-            tickangle=30,
-            tickfont=dict(size=9),
-            title_font=dict(size=10),
-            title_standoff=18,
+            gridcolor="#E2DBD4", gridwidth=0.5, linecolor="#C8C0B8", linewidth=0.8,
+            zeroline=False, tickangle=30, tickfont=dict(size=9),
+            title_font=dict(size=10), title_standoff=18,
         )
         fig_pair.update_yaxes(
-            **AXIS_STYLE,
-            tickfont=dict(size=9),
-            title_font=dict(size=10),
-            title_standoff=18,
+            gridcolor="#E2DBD4", gridwidth=0.5, linecolor="#C8C0B8", linewidth=0.8,
+            zeroline=False, tickfont=dict(size=9),
+            title_font=dict(size=10), title_standoff=18,
         )
         st.plotly_chart(fig_pair, use_container_width=True)
     else:
